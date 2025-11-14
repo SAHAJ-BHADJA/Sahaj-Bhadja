@@ -10,7 +10,7 @@ interface DetailsProps {
   companyLink: string;
   time: string;
   address: string;
-  work: string;
+  work: string | string[];
 }
 
 const Details: React.FC<DetailsProps> = ({
@@ -37,7 +37,7 @@ const Details: React.FC<DetailsProps> = ({
   return (
     <li
       ref={ref}
-      className="my-8 first:mt-0 last:mb-0 w-[60%] mx-auto flex flex-col items-center justify-between"
+      className="my-8 first:mt-0 last:mb-0 w-[80%] mx-auto flex flex-col items-center justify-between"
     >
       <LiIcon reference={ref} />
       <motion.div
@@ -63,7 +63,15 @@ const Details: React.FC<DetailsProps> = ({
         <span className="capitalize font-medium text-[rgb(226,226,182)]">
           {time} | {address}
         </span>
-        <p className="font-medium w-full">{work}</p>
+        {Array.isArray(work) ? (
+          <ul className="font-medium w-full list-disc list-outside ml-5 space-y-1">
+            {work.map((item, index) => (
+              <li key={index}>{item}</li>
+            ))}
+          </ul>
+        ) : (
+          <p className="font-medium w-full">{work}</p>
+        )}
       </motion.div>
     </li>
   );
@@ -91,12 +99,37 @@ const WorkEx: React.FC = () => {
           />
           <ul className="w-full flex flex-col items-start justify-between ml-4">
             <Details
-              position="Software Developer Enginerr"
+              position="Software Engineer Intern"
+              company="Grad8"
+              companyLink="https://www.grad8.com/"
+              time="June 2025 - PRESENT"
+              address="Los Angeles, CA"
+              work={[
+                "Engineered an AI-powered grading platform using multimodal LLMs (GPT-4o, Claude 3.7, Qwen-VL) + OCR to score handwritten/text submissions; added batch grading, multithreading, and secure file ingestion with AWS RDS + FastAPI for high-throughput processing.",
+                "Developed rubric-generation dashboards and deployed a production backend on AWS serving 150+ instructors and 10K+ grading requests/day, cutting grading turnaround time by 60%.",
+              ]}
+            />
+            <Details
+              position="ML Research Assistant"
+              company="USC AD Labs"
+              companyLink="https://sites.google.com/usc.edu/autodrivelab/"
+              time="January 2025 - PRESENT"
+              address="Los Angeles, CA"
+              work={[
+                "Implemented a GPT-style Decision Transformer for offline RL in autonomous driving—leveraged return-to-go, state, and action embeddings for long-horizon planning without value-bootstrapping and built end-to-end pipelines from trajectory logs to HD map vectors with discretized action spaces.",
+                "Architected a spatial-temporal encoder merging HD-map geometry (road layout, lane direction) with ego-agent context (past trajectories) via multi-head attention in closed-loop planning performance and exploring LLMs.",
+              ]}
+            />
+            <Details
+              position="Software Developer Engineer"
               company="Aasma Technology Solutions"
               companyLink="https://aasmatech.com/"
               time="August 2023 - July 2024"
               address="Ahemdabad, Gujarat, India"
-              work="In my tenure of Job I migrated and deployed cross-platform data-sharing software using a microservice approach, improving data flow and reducing manual entry. Optimized APIs and UX for low-bandwidth users, and implemented OOP patterns for efficient API integrations. Utilized AWS Glue and S3 for scalable data transformation and storage."
+              work={[
+                "Formulated cross-platform data-sharing software with microservice architecture; built pipelines in Jenkins (Blue  Ocean) to automate VM testing, executables, and integration/unit tests (PyTest, Mockito), working with Microsoft/GitHub team in Agile Scrum meetings.",
+                "Troubleshot and optimized large-scale API integrations with OOP, AWS Glue, and S3, improving response times by 30%. Led team of 10 for ETL workflows, boosting pipeline efficiency 68% and cutting technical debt 20%.",
+              ]}
             />
             <Details
               position="Full Stack Develoepr Inter"
@@ -104,7 +137,21 @@ const WorkEx: React.FC = () => {
               companyLink="https://aasmatech.com/"
               time="May 2023 – August 2023"
               address="Ahmedabad, Gujarat, India"
-              work="In my Summer Intern, I developed a resource management platform using the MERN stack with WebSockets for real-time updates and RESTful APIs. Employed microservices for modular integration and deployed an Azure SQL database, ensuring seamless performance. Optimized code in fast-paced environments, leveraging Google Analytics to reduce resource wastage and improve lead conversions."
+              work={[
+                "Developed a MERN-based resource management platform (CRM) with WebSockets, RESTful APIs, and a  microservice architecture, addressing large-scale challenges in code review syncing 2M+ records across locations.",
+                "Deployed Azure SQL with Jenkins for automated testing, leveraging Google Analytics to reduce resource wastage by 42%, increase lead conversions by 15%, and expand market reach.",
+              ]}
+            />
+            <Details
+              position="Data Analyst - Research Fellowship"
+              company="PDEU"
+              companyLink="https://pdeu.ac.in/"
+              time="May 2023- August 2023"
+              address="Ahmedabad, Gujarat, India"
+              work={[
+                "Designed and implemented a malicious URL detection system on a dataset of 650K+ URLs, applying advanced statistical feature engineering and machine learning models (Gaussian NB, Random Forest) alongside deep learning architectures (RNN, LSTM, Bi-LSTM, GRU, CNN).",
+                "Achieved 96%+ detection accuracy, building a feature-rich pipeline with 21 behavioral indicators (e.g., IP presence, URL length, suspicious keywords) and generating actionable insights into phishing and malware trends.",
+              ]}
             />
             <Details
               position="Web Developer Intern"
@@ -112,7 +159,10 @@ const WorkEx: React.FC = () => {
               companyLink="https://lstcapital.in/"
               time="November 2022 - January 2023"
               address="Surat, Gujarat, India"
-              work="During my internship as a web developer, my role was to develop a system architecture and facilitated clear communication between clients and the team, reducing design errors and improving project initiation. Streamlined project delivery by building a Flask API and integrating Firebase cloud systems for seamless compatibility across mobile and web platforms."
+              work={[
+                "Engineered cross-platform (MacOS & AndroidOS) data-pipeline framework using Databricks, Flask API, and Firebase to enable real-time analytics on 50K+ records with automated testing and integrated Web3 support.",
+                "Integrated a full-stack, PCI-compliant payment infrastructure supporting multi-currency cards, UPI, wallets, and PayPal with real-time analytics, refund/dispute automation, fraud detection, and webhook-driven.",
+              ]}
             />
           </ul>
         </div>
