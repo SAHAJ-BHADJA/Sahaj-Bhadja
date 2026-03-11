@@ -22,13 +22,14 @@ const Footer = () => {
         <p className="text-white-200 md:mt-10 my-5 text-center">
           Reach out to me today and let&apos;s discuss how I can help you.
         </p>
-        <a href="mailto:sahajbhadja10@gmail.com">
+        <a href="mailto:bhadja@usc.edu">
           <MagicButton
             title="Let's get in touch"
             icon={<FaLocationArrow />}
             position="right"
           />
         </a>
+        <p className="text-white-100 mt-4 text-center">bhadja@usc.edu | +1 (213) 284-4651</p>
       </div>
       <div className="flex mt-16 md:flex-row flex-col justify-between items-center">
         <p className="md:text-base text-sm md:font-normal font-light">

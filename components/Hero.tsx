@@ -58,11 +58,11 @@ const Hero = () => {
 
           <p className="text-center md:tracking-wider mb-4 text-sm md:text-lg lg:text-2xl">
             Hi! I&apos;m <b style={{ color: "#E2E2B6" }}>Sahaj Bhadja</b>, a
-            Computer Engineer based in LA,California.
+            Software Engineer based in Los Angeles, California.
           </p>
 
           <a
-            href="https://drive.google.com/file/d/1sQiAvGMEGbrK6L5lFn84VBbxgD52r_wq/view?usp=sharing"
+            href="https://drive.google.com/file/d/1RPc5xR3dZNscNcu1pLjYEC3tbIH8CY3p/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
           >

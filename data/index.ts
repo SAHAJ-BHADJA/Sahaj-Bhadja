@@ -1,6 +1,7 @@
 export const navItems = [
   { name: "About", link: "#about" },
   { name: "Experience", link: "#workex" },
+  { name: "Education", link: "#education" },
   { name: "Skills", link: "#skills" },
   { name: "Projects", link: "#recentprojects" },
   { name: "Contact", link: "#footer" },
@@ -50,7 +51,7 @@ export const gridItems = [
 
   {
     id: 5,
-    title: "Currently building a Saas AI Automation Product",
+    title: "Currently building a SaaS AI Automation Product",
     description: "The Inside Scoop",
     className: "md:col-span-3 md:row-span-2",
     imgClassName: "absolute right-0 bottom-0 md:w-96 w-60",
@@ -82,15 +83,15 @@ export const projects = [
   {
     id: 2,
     title: "Big Brain",
-    des: "Built an AI-powered document platform with Pinecone, FAISS, Convex, and Clerk, enabling secure uploads, intelligent analysis, real-time summaries, fast vector search, and collaborative discussions in a Shadcn UI.",
+    des: "Designed and rolled out a semantic document retrieval system indexing 50K+ documents using transformer embeddings and FAISS/Pinecone, enabling contextual Q&A and summarization with sub-second retrieval latency.",
     img: "/img/BigBrain.png",
     iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/fm.svg"],
     link: "https://big-brain-pied.vercel.app/",
   },
   {
     id: 3,
-    title: "HIMS - Hospital Management System",
-    des: "Gujarat State Hospital Management System for managing patient records, billing, scheduling appointments and other hospital management tasks.",
+    title: "HMIS - Hospital Management Information System",
+    des: "Architected a microservice-based healthcare platform integrating ABDM APIs, supporting 100+ daily appointment workflows and reducing patient record retrieval time by 2x.",
     img: "/img/hims.png",
     iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/fm.svg"],
     link: "https://hims-rouge.vercel.app/",
@@ -118,6 +119,14 @@ export const projects = [
     img: "/img/Quantum.png",
     iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/three.svg", "/gsap.svg"],
     link: "https://ieeexplore.ieee.org/document/10677253",
+  },
+  {
+    id: 7,
+    title: "CaptionCraft - Image Caption Generator",
+    des: "Benchmarked BLIP, GIT, and ViT-GPT2 on a 10K-image/100K-caption dataset, improving caption quality from 81% to 96%, and built Flask inference APIs for scalable real-time caption generation.",
+    img: "/p3.svg",
+    iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/fm.svg"],
+    link: "https://github.com/sahajbhadja",
   },
 ];
 
@@ -222,7 +231,7 @@ export const socialMedia = [
   {
     id: 1,
     img: "/git.svg",
-    link: "https://github.com/SAHAJ-BHADJA",
+    link: "https://github.com/sahajbhadja",
   },
   {
     id: 2,

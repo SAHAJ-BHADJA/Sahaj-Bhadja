@@ -68,7 +68,6 @@ function Skills_page() {
         </h2>
 
         <div className="circle-part w-full h-screen flex items-center justify-center rounded-full relative">
-          {/* Center */}
           <motion.div
             className="flex items-center justify-center rounded-full font-semibold text-white p-8 shadow-white cursor-pointer"
             style={{ backgroundColor: "rgb(79, 61, 153)" }}
@@ -77,56 +76,44 @@ function Skills_page() {
             Developer
           </motion.div>
 
-          {/* ---------------------- INNER RING ---------------------- */}
           <Skill name="Python" x="-10vw" y="-6vw" />
           <Skill name="JavaScript" x="10vw" y="-6vw" />
           <Skill name="TypeScript" x="-12vw" y="6vw" />
           <Skill name="SQL" x="12vw" y="6vw" />
           <Skill name="Java" x="0vw" y="-12vw" />
-          <Skill name="C" x="-8vw" y="-14vw" />
           <Skill name="C++" x="8vw" y="-14vw" />
-          <Skill name="Bash" x="-16vw" y="-3vw" />
-          <Skill name="Linux" x="16vw" y="-3vw" />
 
-          {/* ---------------------- MIDDLE RING ---------------------- */}
-          <Skill name="Git" x="-20vw" y="-8vw" />
-          <Skill name="GO" x="-22vw" y="2vw" />
-          <Skill name="Swift" x="-20vw" y="10vw" />
-          <Skill name="HTML" x="-28vw" y="-2vw" />
-          <Skill name="TailwindCSS" x="-26vw" y="8vw" />
           <Skill name="React.js" x="-30vw" y="-6vw" />
+          <Skill name="Next.js" x="24vw" y="10vw" />
+          <Skill name="TailwindCSS" x="-26vw" y="8vw" />
           <Skill name="Flask" x="26vw" y="-4vw" />
           <Skill name="Django" x="-18vw" y="0vw" />
           <Skill name="Node.js" x="30vw" y="-8vw" />
           <Skill name="Express.js" x="28vw" y="2vw" />
-          <Skill name="Next.js" x="24vw" y="10vw" />
+          <Skill name="REST APIs" x="-22vw" y="2vw" />
 
-          {/* ---------------------- AI & ML RING ---------------------- */}
           <Skill name="PyTorch" x="-8vw" y="16vw" />
-          <Skill name="Transformers" x="8vw" y="16vw" />
           <Skill name="TensorFlow" x="16vw" y="14vw" />
-          <Skill name="OpenCV" x="-16vw" y="14vw" />
-          <Skill name="Beautiful Soup" x="-4vw" y="20vw" />
+          <Skill name="Transformers" x="8vw" y="16vw" />
+          <Skill name="NLP" x="-16vw" y="14vw" />
+          <Skill name="LLM Systems" x="30vw" y="-10vw" />
+          <Skill name="Feature Engineering" x="-4vw" y="20vw" />
+          <Skill name="Hyperparameter Tuning" x="24vw" y="16vw" />
 
-          {/* ---------------------- CLOUD / DATABASE RING ---------------------- */}
+          <Skill name="PostgreSQL" x="25vw" y="16vw" />
           <Skill name="MySQL" x="-22vw" y="14vw" />
           <Skill name="MongoDB" x="-30vw" y="12vw" />
-          <Skill name="AWS (S3, RDS)" x="-25vw" y="18vw" />
-          <Skill name="PostgreSQL" x="25vw" y="16vw" />
-          <Skill name="GCP" x="30vw" y="12vw" />
-
-          {/* ---------------------- TOOLS RING ---------------------- */}
+          <Skill name="AWS (EC2, S3, RDS)" x="-25vw" y="18vw" />
+          <Skill name="Microsoft Azure" x="30vw" y="12vw" />
           <Skill name="Docker" x="-20vw" y="-12vw" />
           <Skill name="Kubernetes" x="20vw" y="-12vw" />
-          <Skill name="Jenkins" x="0vw" y="-20vw" />
-          <Skill name="GitHub" x="0vw" y="-22vw" />
-          <Skill name="Postman" x="12vw" y="-18vw" />
-          <Skill name="Object-oriented design" x="-12vw" y="-18vw" />
-          <Skill name="Test Automation" x="22vw" y="-16vw" />
-          <Skill name="Data pipelines" x="-28vw" y="-14vw" />
-          <Skill name="ETL Pipeline" x="28vw" y="-14vw" />
-          <Skill name="Agile Methodology" x="-30vw" y="-10vw" />
-          <Skill name="SDLC" x="30vw" y="-10vw" />
+
+          <Skill name="CI/CD" x="0vw" y="-20vw" />
+          <Skill name="Distributed Systems" x="0vw" y="-22vw" />
+          <Skill name="ETL Pipelines" x="-28vw" y="-14vw" />
+          <Skill name="Performance Optimization" x="28vw" y="-14vw" />
+          <Skill name="Agile" x="-30vw" y="-10vw" />
+          <Skill name="System Design" x="12vw" y="-18vw" />
         </div>
 
         <div ref={ref} className="mobile-part">
@@ -137,87 +124,74 @@ function Skills_page() {
               animate={controls}
             >
               <div className="block p-4">
-                {/* Languages */}
                 <h3 className="text-xl font-semibold mb-2">Languages:</h3>
                 <div className="flex flex-wrap gap-2 mb-4">
-                  {[
-                    "Python",
-                    "JavaScript",
-                    "TypeScript",
-                    "SQL",
-                    "Java",
-                    "C",
-                    "C++",
-                    "Git",
-                    "Bash",
-                    "Linux",
-                    "GO",
-                    "Swift",
-                  ].map((skill, index) => (
-                    <MobileSkill key={index} name={skill} />
-                  ))}
-                </div>
-
-                {/* Web Technologies */}
-                <h3 className="text-xl font-semibold mb-2">Web Tech:</h3>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {[
-                    "HTML",
-                    "TailwindCSS",
-                    "React.js",
-                    "Flask",
-                    "Django",
-                    "Node.js",
-                    "Express.js",
-                    "Next.js",
-                  ].map((skill, index) => (
-                    <MobileSkill key={index} name={skill} />
-                  ))}
-                </div>
-
-                {/* AI & ML */}
-                <h3 className="text-xl font-semibold mb-2">AI & ML:</h3>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {[
-                    "PyTorch",
-                    "Beautiful Soup",
-                    "Transformers",
-                    "OpenCV",
-                    "TensorFlow",
-                  ].map((skill, index) => (
-                    <MobileSkill key={index} name={skill} />
-                  ))}
-                </div>
-
-                {/* Database & Cloud Platforms */}
-                <h3 className="text-xl font-semibold mb-2">
-                  Database & Cloud Platforms:
-                </h3>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {["MySQL", "MongoDB", "AWS (S3, RDS)", "PostgreSQL"].map(
+                  {["Python", "Java", "C++", "JavaScript", "TypeScript", "SQL"].map(
                     (skill, index) => (
                       <MobileSkill key={index} name={skill} />
                     )
                   )}
                 </div>
 
-                {/* Tools & Methodologies */}
-                <h3 className="text-xl font-semibold mb-2">
-                  Tools & Methodologies:
-                </h3>
+                <h3 className="text-xl font-semibold mb-2">Backend & APIs:</h3>
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {["Flask", "Django", "Node.js", "Express.js", "REST APIs"].map(
+                    (skill, index) => (
+                      <MobileSkill key={index} name={skill} />
+                    )
+                  )}
+                </div>
+
+                <h3 className="text-xl font-semibold mb-2">Frontend:</h3>
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {["React.js", "Next.js", "TailwindCSS"].map((skill, index) => (
+                    <MobileSkill key={index} name={skill} />
+                  ))}
+                </div>
+
+                <h3 className="text-xl font-semibold mb-2">Databases:</h3>
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {["PostgreSQL", "MySQL", "MongoDB"].map((skill, index) => (
+                    <MobileSkill key={index} name={skill} />
+                  ))}
+                </div>
+
+                <h3 className="text-xl font-semibold mb-2">Cloud & Infrastructure:</h3>
                 <div className="flex flex-wrap gap-2 mb-4">
                   {[
-                    "Data pipelines",
-                    "Data/ETL Pipeline",
-                    "Agile Methodology",
-                    "SDLC",
+                    "AWS (EC2, S3, RDS)",
+                    "Microsoft Azure",
                     "Docker",
                     "Kubernetes",
-                    "Jenkins",
-                    "GitHub",
-                    "Object-oriented design",
-                    "Test Automation",
-                    "Postman",
+                  ].map((skill, index) => (
+                    <MobileSkill key={index} name={skill} />
+                  ))}
+                </div>
+
+                <h3 className="text-xl font-semibold mb-2">AI/ML:</h3>
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {[
+                    "PyTorch",
+                    "TensorFlow",
+                    "Transformers",
+                    "NLP",
+                    "LLM Systems",
+                    "Feature Engineering",
+                    "Hyperparameter Tuning",
+                  ].map((skill, index) => (
+                    <MobileSkill key={index} name={skill} />
+                  ))}
+                </div>
+
+                <h3 className="text-xl font-semibold mb-2">Engineering Practices:</h3>
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {[
+                    "CI/CD",
+                    "Distributed Systems",
+                    "ETL Pipelines",
+                    "Performance Optimization",
+                    "Agile",
+                    "System Design",
                   ].map((skill, index) => (
                     <MobileSkill key={index} name={skill} />
                   ))}

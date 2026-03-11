@@ -3,15 +3,92 @@ import "./WorkEx.css";
 import { motion, useInView, useScroll, useAnimation } from "framer-motion";
 import LiIcon from "./LiIcon";
 
-// Define the type for the Details component props
 interface DetailsProps {
   position: string;
   company: string;
   companyLink: string;
   time: string;
   address: string;
-  work: string | string[];
+  work: string[];
 }
+
+const experienceData: DetailsProps[] = [
+  {
+    position: "Software Engineer",
+    company: "USC Dornsife",
+    companyLink: "https://dornsife.usc.edu/",
+    time: "September 2025 - Present",
+    address: "Los Angeles, CA",
+    work: [
+      "Architected a multi-tenant AI education platform using Azure SQL and Blob Storage with row-level security and normalized schemas for 500+ users, reducing dashboard latency from 1.2s to 350ms.",
+      "Restructured a fault-tolerant asynchronous LLM orchestration system using FastAPI background workers, processing 1K+ AI jobs with failure isolation and improving throughput by 3x under concurrent workloads.",
+    ],
+  },
+  {
+    position: "Software Engineer Intern",
+    company: "Grad8",
+    companyLink: "https://www.grad8.com/",
+    time: "June 2025 - August 2025",
+    address: "Los Angeles, CA",
+    work: [
+      "Engineered an AI-powered grading platform leveraging multimodal LLMs (GPT-4o, Claude 3.7, Qwen-VL) and OCR to evaluate text and handwritten submissions.",
+      "Designed a concurrent batch-processing pipeline with secure PDF/DOCX/ZIP ingestion via AWS RDS and REST APIs for fault-tolerant high-throughput execution.",
+      "Implemented a production backend on AWS serving 150+ instructors and 10K+ grading requests/day, reducing feedback turnaround time by 60%.",
+    ],
+  },
+  {
+    position: "Software Developer Engineer (SecureSync)",
+    company: "Aasma Technology Solutions",
+    companyLink: "https://aasmatech.com/",
+    time: "August 2023 - July 2024",
+    address: "Ahmedabad, Gujarat, India",
+    work: [
+      "Formulated cross-platform data-sharing software with microservice architecture and Jenkins (Blue Ocean) pipelines for VM testing, executables, and integration/unit tests (PyTest, Mockito).",
+      "Troubleshot and streamlined large-scale API integrations with OOP, AWS Glue, and S3, improving response times by 30% while boosting ETL pipeline efficiency by 68%.",
+    ],
+  },
+  {
+    position: "Full Stack Developer Intern (VibrantChem)",
+    company: "Aasma Technology Solutions",
+    companyLink: "https://aasmatech.com/",
+    time: "May 2023 - August 2023",
+    address: "Ahmedabad, Gujarat, India",
+    work: [
+      "Developed a MERN-based resource management platform with WebSockets, RESTful APIs, and microservice architecture, supporting synchronization of 2M+ records across locations.",
+      "Deployed Azure SQL with Jenkins for automated testing, reducing resource wastage by 42% and increasing lead conversions by 15%.",
+    ],
+  },
+  {
+    position: "Web Developer Intern",
+    company: "LST Capitals",
+    companyLink: "https://lstcapital.in/",
+    time: "November 2022 - January 2023",
+    address: "Surat, Gujarat, India",
+    work: [
+      "Engineered a cross-platform data-pipeline framework using Databricks, Flask API, and Firebase to enable real-time analytics on 50K+ records.",
+      "Integrated a PCI-compliant payment infrastructure supporting cards, UPI, wallets, and PayPal with real-time analytics, refund/dispute automation, and fraud detection.",
+    ],
+  },
+];
+
+const educationData = [
+  {
+    degree: "Master of Science in Computer Science",
+    school: "University of Southern California",
+    location: "Los Angeles, CA",
+    duration: "August 2024 - May 2026",
+    details:
+      "GPA: 3.75/4 | Coursework: Analysis of Algorithms, Database Systems, Web Technologies, Advanced NLP",
+  },
+  {
+    degree: "Bachelor of Technology in Computer Science and Engineering",
+    school: "Pandit Deendayal Energy University",
+    location: "Gandhinagar, India",
+    duration: "November 2020 - May 2024",
+    details:
+      "GPA: 3.88/4 | Coursework: Software Engineering, Operating Systems, Object-Oriented Programming, Data Retrieval",
+  },
+];
 
 const Details: React.FC<DetailsProps> = ({
   position,
@@ -22,17 +99,14 @@ const Details: React.FC<DetailsProps> = ({
   work,
 }) => {
   const ref = useRef<HTMLLIElement>(null);
-
   const isInView = useInView(ref, { once: true });
   const mainControls = useAnimation();
-  const slideControls = useAnimation();
 
   useEffect(() => {
     if (isInView) {
       mainControls.start("visible");
-      slideControls.start("visible");
     }
-  }, [isInView, mainControls, slideControls]);
+  }, [isInView, mainControls]);
 
   return (
     <li
@@ -50,34 +124,29 @@ const Details: React.FC<DetailsProps> = ({
         transition={{ duration: 0.5, delay: 0 }}
       >
         <h3 className="capitalize font-bold text-2xl">
-          {position}&nbsp;
+          {position}
           <a
             href={companyLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-red-600 capitalize"
+            className="text-red-600 capitalize block"
           >
-            <br />@{company}
+            @{company}
           </a>
         </h3>
         <span className="capitalize font-medium text-[rgb(226,226,182)]">
           {time} | {address}
         </span>
-        {Array.isArray(work) ? (
-          <ul className="font-medium w-full list-disc list-outside ml-5 space-y-1">
-            {work.map((item, index) => (
-              <li key={index}>{item}</li>
-            ))}
-          </ul>
-        ) : (
-          <p className="font-medium w-full">{work}</p>
-        )}
+        <ul className="font-medium w-full list-disc list-outside ml-5 space-y-1">
+          {work.map((item, index) => (
+            <li key={`${company}-${index}`}>{item}</li>
+          ))}
+        </ul>
       </motion.div>
     </li>
   );
 };
 
-// WorkEx component
 const WorkEx: React.FC = () => {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -87,8 +156,8 @@ const WorkEx: React.FC = () => {
 
   return (
     <>
-      <div className="main-exp" id="experience">
-        <h1 className="font-bold text-8x1 w-full text-center">
+      <div className="main-exp">
+        <h1 className="font-bold text-5xl w-full text-center">
           <span style={{ color: "white" }}>My&nbsp;</span>
           <span style={{ color: "rgb(203, 172, 249)" }}>Experience</span>
         </h1>
@@ -98,73 +167,32 @@ const WorkEx: React.FC = () => {
             className="line-part absolute left-9 top-1 w-[4px] h-full bg-white origin-top"
           />
           <ul className="w-full flex flex-col items-start justify-between ml-4">
-            <Details
-              position="Software Engineer Intern"
-              company="Grad8"
-              companyLink="https://www.grad8.com/"
-              time="June 2025 - PRESENT"
-              address="Los Angeles, CA"
-              work={[
-                "Engineered an AI-powered grading platform using multimodal LLMs (GPT-4o, Claude 3.7, Qwen-VL) + OCR to score handwritten/text submissions; added batch grading, multithreading, and secure file ingestion with AWS RDS + FastAPI for high-throughput processing.",
-                "Developed rubric-generation dashboards and deployed a production backend on AWS serving 150+ instructors and 10K+ grading requests/day, cutting grading turnaround time by 60%.",
-              ]}
-            />
-            <Details
-              position="ML Research Assistant"
-              company="USC AD Labs"
-              companyLink="https://sites.google.com/usc.edu/autodrivelab/"
-              time="January 2025 - PRESENT"
-              address="Los Angeles, CA"
-              work={[
-                "Implemented a GPT-style Decision Transformer for offline RL in autonomous driving—leveraged return-to-go, state, and action embeddings for long-horizon planning without value-bootstrapping and built end-to-end pipelines from trajectory logs to HD map vectors with discretized action spaces.",
-                "Architected a spatial-temporal encoder merging HD-map geometry (road layout, lane direction) with ego-agent context (past trajectories) via multi-head attention in closed-loop planning performance and exploring LLMs.",
-              ]}
-            />
-            <Details
-              position="Software Developer Engineer"
-              company="Aasma Technology Solutions"
-              companyLink="https://aasmatech.com/"
-              time="August 2023 - July 2024"
-              address="Ahemdabad, Gujarat, India"
-              work={[
-                "Formulated cross-platform data-sharing software with microservice architecture; built pipelines in Jenkins (Blue  Ocean) to automate VM testing, executables, and integration/unit tests (PyTest, Mockito), working with Microsoft/GitHub team in Agile Scrum meetings.",
-                "Troubleshot and optimized large-scale API integrations with OOP, AWS Glue, and S3, improving response times by 30%. Led team of 10 for ETL workflows, boosting pipeline efficiency 68% and cutting technical debt 20%.",
-              ]}
-            />
-            <Details
-              position="Full Stack Develoepr Inter"
-              company="Aasma Technology Solutions"
-              companyLink="https://aasmatech.com/"
-              time="May 2023 – August 2023"
-              address="Ahmedabad, Gujarat, India"
-              work={[
-                "Developed a MERN-based resource management platform (CRM) with WebSockets, RESTful APIs, and a  microservice architecture, addressing large-scale challenges in code review syncing 2M+ records across locations.",
-                "Deployed Azure SQL with Jenkins for automated testing, leveraging Google Analytics to reduce resource wastage by 42%, increase lead conversions by 15%, and expand market reach.",
-              ]}
-            />
-            <Details
-              position="Data Analyst - Research Fellowship"
-              company="PDEU"
-              companyLink="https://pdeu.ac.in/"
-              time="May 2023- August 2023"
-              address="Ahmedabad, Gujarat, India"
-              work={[
-                "Designed and implemented a malicious URL detection system on a dataset of 650K+ URLs, applying advanced statistical feature engineering and machine learning models (Gaussian NB, Random Forest) alongside deep learning architectures (RNN, LSTM, Bi-LSTM, GRU, CNN).",
-                "Achieved 96%+ detection accuracy, building a feature-rich pipeline with 21 behavioral indicators (e.g., IP presence, URL length, suspicious keywords) and generating actionable insights into phishing and malware trends.",
-              ]}
-            />
-            <Details
-              position="Web Developer Intern"
-              company="LST Capitals"
-              companyLink="https://lstcapital.in/"
-              time="November 2022 - January 2023"
-              address="Surat, Gujarat, India"
-              work={[
-                "Engineered cross-platform (MacOS & AndroidOS) data-pipeline framework using Databricks, Flask API, and Firebase to enable real-time analytics on 50K+ records with automated testing and integrated Web3 support.",
-                "Integrated a full-stack, PCI-compliant payment infrastructure supporting multi-currency cards, UPI, wallets, and PayPal with real-time analytics, refund/dispute automation, fraud detection, and webhook-driven.",
-              ]}
-            />
+            {experienceData.map((item) => (
+              <Details key={`${item.company}-${item.position}`} {...item} />
+            ))}
           </ul>
+        </div>
+
+        <div id="education" className="w-[75%] mx-auto mt-24">
+          <h2 className="font-bold text-4xl text-center mb-10">
+            <span style={{ color: "white" }}>My&nbsp;</span>
+            <span style={{ color: "rgb(203, 172, 249)" }}>Education</span>
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {educationData.map((item) => (
+              <div
+                key={item.school}
+                className="rounded-2xl border border-white/10 bg-[#10132E] p-6"
+              >
+                <h3 className="text-xl font-bold">{item.degree}</h3>
+                <p className="text-purple mt-1">{item.school}</p>
+                <p className="text-white-200 mt-1">
+                  {item.duration} | {item.location}
+                </p>
+                <p className="text-white-100 mt-3">{item.details}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </>
