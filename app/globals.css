@@ -70,9 +70,11 @@
   * {
     @apply border-border !scroll-smooth;
   }
+
   body {
     @apply bg-background text-foreground;
   }
+
   button {
     @apply active:outline-none;
   }
@@ -81,5 +83,24 @@
 @layer utilities {
   .heading {
     @apply font-bold text-4xl md:text-5xl text-center;
+  }
+
+  body.blueprint-mode {
+    --background: 222 84% 5%;
+    --foreground: 210 40% 98%;
+    --card: 222 84% 7%;
+    --card-foreground: 210 40% 98%;
+    --border: 222 84% 30%;
+    --muted: 222 84% 8%;
+    --muted-foreground: 215 20% 80%;
+
+    background-color: #020617;
+  }
+
+  body.blueprint-mode main {
+    background-image: radial-gradient(circle at 1px 1px,
+        rgba(148, 163, 184, 0.18) 1px,
+        transparent 0);
+    background-size: 24px 24px;
   }
 }

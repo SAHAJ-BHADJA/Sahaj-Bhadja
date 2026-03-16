@@ -2,7 +2,7 @@ import { FaLocationArrow } from "react-icons/fa6";
 
 import MagicButton from "./MagicButton";
 import { Spotlight } from "./ui/Spotlight";
-import { TextGenerateEffect } from "./ui/TextGenerateEffect";
+import { TerminalAbout } from "./TerminalAbout";
 
 const Hero = () => {
   return (
@@ -41,37 +41,30 @@ const Hero = () => {
       </div>
 
       <div className="flex justify-center relative my-20 z-10">
-        <div className="max-w-[89vw] md:max-w-2xl lg:max-w-[60vw] flex flex-col items-center justify-center">
+        <div className="max-w-[89vw] md:max-w-2xl lg:max-w-[60vw] flex flex-col items-center justify-center space-y-8">
           <p className="uppercase tracking-widest text-xs text-center text-blue-100 max-w-80">
             Welcome to my Portfolio !
           </p>
 
-          {/**
-           *  Link: https://ui.aceternity.com/components/text-generate-effect
-           *
-           *  change md:text-6xl, add more responsive code
-           */}
-          <TextGenerateEffect
-            words="Transforming Concepts and Ideas into Seamless Products and Experiences"
-            className="text-center text-[40px] md:text-5xl lg:text-6xl"
-          />
-
-          <p className="text-center md:tracking-wider mb-4 text-sm md:text-lg lg:text-2xl">
-            Hi! I&apos;m <b style={{ color: "#E2E2B6" }}>Sahaj Bhadja</b>, a
-            Software Engineer based in Los Angeles, California.
+          <p className="text-center md:tracking-wider text-xl md:text-2xl lg:text-3xl font-semibold">
+            Hi! I&apos;m <span style={{ color: "#E2E2B6" }}>Sahaj Bhadja</span>.
           </p>
 
-          <a
-            href="https://drive.google.com/file/d/1RPc5xR3dZNscNcu1pLjYEC3tbIH8CY3p/view?usp=sharing"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <MagicButton
-              title="View Resume"
-              icon={<FaLocationArrow />}
-              position="right"
-            />
-          </a>
+          <div className="flex flex-col items-center gap-6 w-full">
+            <TerminalAbout />
+
+            <a
+              href="https://drive.google.com/file/d/1RPc5xR3dZNscNcu1pLjYEC3tbIH8CY3p/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <MagicButton
+                title="View Resume"
+                icon={<FaLocationArrow />}
+                position="right"
+              />
+            </a>
+          </div>
         </div>
       </div>
     </div>

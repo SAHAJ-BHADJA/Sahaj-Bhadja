@@ -7,6 +7,99 @@ export const navItems = [
   { name: "Contact", link: "#footer" },
 ];
 
+export type SkillNode = {
+  name: string;
+  x: string | number;
+  y: string | number;
+};
+
+export const skillNodes: SkillNode[] = [
+  { name: "Python", x: "-10vw", y: "-6vw" },
+  { name: "JavaScript", x: "10vw", y: "-6vw" },
+  { name: "TypeScript", x: "-12vw", y: "6vw" },
+  { name: "SQL", x: "12vw", y: "6vw" },
+  { name: "Java", x: "0vw", y: "-12vw" },
+  { name: "C++", x: "8vw", y: "-14vw" },
+
+  { name: "React.js", x: "-30vw", y: "-6vw" },
+  { name: "Next.js", x: "24vw", y: "10vw" },
+  { name: "TailwindCSS", x: "-26vw", y: "8vw" },
+  { name: "Flask", x: "26vw", y: "-4vw" },
+  { name: "Django", x: "-18vw", y: "0vw" },
+  { name: "Node.js", x: "30vw", y: "-8vw" },
+  { name: "Express.js", x: "28vw", y: "2vw" },
+  { name: "REST APIs", x: "-22vw", y: "2vw" },
+
+  { name: "PyTorch", x: "-8vw", y: "16vw" },
+  { name: "TensorFlow", x: "16vw", y: "14vw" },
+  { name: "Transformers", x: "8vw", y: "16vw" },
+  { name: "NLP", x: "-16vw", y: "14vw" },
+  { name: "LLM Systems", x: "30vw", y: "-10vw" },
+  { name: "Feature Engineering", x: "-4vw", y: "20vw" },
+  { name: "Hyperparameter Tuning", x: "24vw", y: "16vw" },
+
+  { name: "PostgreSQL", x: "25vw", y: "16vw" },
+  { name: "MySQL", x: "-22vw", y: "14vw" },
+  { name: "MongoDB", x: "-30vw", y: "12vw" },
+  { name: "AWS (EC2, S3, RDS)", x: "-25vw", y: "18vw" },
+  { name: "Microsoft Azure", x: "30vw", y: "12vw" },
+  { name: "Docker", x: "-20vw", y: "-12vw" },
+  { name: "Kubernetes", x: "20vw", y: "-12vw" },
+
+  { name: "CI/CD", x: "0vw", y: "-20vw" },
+  { name: "Distributed Systems", x: "0vw", y: "-22vw" },
+  { name: "ETL Pipelines", x: "-28vw", y: "-14vw" },
+  { name: "Performance Optimization", x: "28vw", y: "-14vw" },
+  { name: "Agile", x: "-30vw", y: "-10vw" },
+  { name: "System Design", x: "12vw", y: "-18vw" },
+];
+
+export const mobileSkillCategories: { label: string; skills: string[] }[] = [
+  {
+    label: "Languages",
+    skills: ["Python", "Java", "C++", "JavaScript", "TypeScript", "SQL"],
+  },
+  {
+    label: "Backend & APIs",
+    skills: ["Flask", "Django", "Node.js", "Express.js", "REST APIs"],
+  },
+  {
+    label: "Frontend",
+    skills: ["React.js", "Next.js", "TailwindCSS"],
+  },
+  {
+    label: "Databases",
+    skills: ["PostgreSQL", "MySQL", "MongoDB"],
+  },
+  {
+    label: "Cloud & Infrastructure",
+    skills: ["AWS (EC2, S3, RDS)", "Microsoft Azure", "Docker", "Kubernetes"],
+  },
+  {
+    label: "AI/ML",
+    skills: [
+      "PyTorch",
+      "TensorFlow",
+      "Transformers",
+      "NLP",
+      "LLM Systems",
+      "Feature Engineering",
+      "Hyperparameter Tuning",
+    ],
+  },
+  {
+    label: "Engineering Practices",
+    skills: [
+      "CI/CD",
+      "Distributed Systems",
+      "ETL Pipelines",
+      "Performance Optimization",
+      "Agile",
+      "System Design",
+    ],
+  },
+];
+
 export const gridItems = [
   {
     id: 1,

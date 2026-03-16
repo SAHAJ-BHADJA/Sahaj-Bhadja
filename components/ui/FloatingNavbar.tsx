@@ -12,6 +12,7 @@ import { cn } from "@/lib/utils";
 export const FloatingNav = ({
   navItems,
   className,
+  onToggleBlueprint,
 }: {
   navItems: {
     name: string;
@@ -19,6 +20,7 @@ export const FloatingNav = ({
     icon?: JSX.Element;
   }[];
   className?: string;
+  onToggleBlueprint?: () => void;
 }) => {
   const { scrollYProgress } = useScroll();
   const [visible, setVisible] = useState(true);
@@ -54,7 +56,7 @@ export const FloatingNav = ({
           duration: 0.2,
         }}
         className={cn(
-          "flex max-w-fit md:min-w-[70vw] lg:min-w-fit fixed z-[5000] top-10 inset-x-0 mx-auto px-10 py-5 rounded-lg border border-black/.1 shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] items-center justify-center space-x-4",
+          "flex max-w-fit md:min-w-[70vw] lg:min-w-fit fixed z-[5000] top-10 inset-x-0 mx-auto px-6 py-4 rounded-lg border border-black/.1 shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] items-center justify-between gap-4",
           className
         )}
         style={{
@@ -64,18 +66,30 @@ export const FloatingNav = ({
           border: "1px solid rgba(255, 255, 255, 0.125)",
         }}
       >
-        {navItems.map((navItem, idx) => (
-          <a
-            key={`link=${idx}`}
-            href={navItem.link} // Links to section id (e.g., #about)
-            className={cn(
-              "relative dark:text-neutral-50 items-center flex space-x-1 text-neutral-600 dark:hover:text-neutral-300 hover:text-neutral-500 !cursor-pointer"
-            )}
+        <div className="flex items-center space-x-4">
+          {navItems.map((navItem, idx) => (
+            <a
+              key={`link=${idx}`}
+              href={navItem.link} // Links to section id (e.g., #about)
+              className={cn(
+                "relative dark:text-neutral-50 items-center flex space-x-1 text-neutral-600 dark:hover:text-neutral-300 hover:text-neutral-500 !cursor-pointer"
+              )}
+            >
+              <span className="block sm:hidden">{navItem.icon}</span>
+              <span className="text-sm">{navItem.name}</span>
+            </a>
+          ))}
+        </div>
+
+        {onToggleBlueprint && (
+          <button
+            type="button"
+            onClick={onToggleBlueprint}
+            className="hidden md:inline-flex items-center rounded-full border border-white/30 bg-white/5 px-3 py-1 text-xs font-medium text-white hover:bg-white/10 transition-colors"
           >
-            <span className="block sm:hidden">{navItem.icon}</span>
-            <span className="text-sm">{navItem.name}</span>
-          </a>
-        ))}
+            Blueprint mode
+          </button>
+        )}
       </motion.div>
     </AnimatePresence>
   );

@@ -26,31 +26,40 @@ const Home = () => {
     };
   }, []);
 
+  const sections: { id: string; component: JSX.Element; scrollMarginTop?: string }[] =
+    [
+      {
+        id: "about",
+        component: <Hero />,
+        scrollMarginTop: "100px",
+      },
+      { id: "grid", component: <Grid />, scrollMarginTop: "100px" },
+      { id: "workex", component: <WorkEx />, scrollMarginTop: "100px" },
+      { id: "skills", component: <Skills />, scrollMarginTop: "100px" },
+      {
+        id: "recentprojects",
+        component: <RecentProjects />,
+        scrollMarginTop: "100px",
+      },
+      { id: "approach", component: <Approach />, scrollMarginTop: "100px" },
+      { id: "footer", component: <Footer />, scrollMarginTop: "100px" },
+    ];
+
   return (
     <main className="relative bg-black-100 flex justify-center items-center flex-col overflow-hidden mx-auto sm:px-10 px-5">
       <div className="max-w-7xl w-full">
         <FloatingNav navItems={navItems} />
-        <section id="about" style={{ scrollMarginTop: "100px" }}>
-          <Hero />
-        </section>
-        <section id="grid">
-          <Grid />
-        </section>
-        <section id="workex">
-          <WorkEx />
-        </section>
-        <section id="skills">
-          <Skills />
-        </section>
-        <section id="recentprojects">
-          <RecentProjects />
-        </section>
-        <section id="approach">
-          <Approach />
-        </section>
-        <section id="footer">
-          <Footer />
-        </section>
+        {sections.map(({ id, component, scrollMarginTop }) => (
+          <section
+            key={id}
+            id={id}
+            style={
+              scrollMarginTop ? { scrollMarginTop } : undefined
+            }
+          >
+            {component}
+          </section>
+        ))}
       </div>
     </main>
   );

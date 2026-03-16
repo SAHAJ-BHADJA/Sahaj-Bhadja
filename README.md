@@ -1,10 +1,4 @@
 <div align="center">
-  <br />
-    <a href="https://youtu.be/FTH6Dn3AyIQ" target="_blank">
-      <img src="https://github.com/adrianhajdin/portfolio/assets/151519281/c6ca3c03-6cb7-4f67-a9b9-a73da5bfa0d8" alt="Project Banner">
-    </a>
-  <br />
-
   <div>
     <img src="https://img.shields.io/badge/-Next_JS-black?style=for-the-badge&logoColor=white&logo=nextdotjs&color=000000" alt="nextdotjs" />
     <img src="https://img.shields.io/badge/-Framer-black?style=for-the-badge&logoColor=white&logo=framer&color=0055FF" alt="framer" />
@@ -12,7 +6,7 @@
     <img src="https://img.shields.io/badge/-Tailwind_CSS-black?style=for-the-badge&logoColor=white&logo=tailwindcss&color=06B6D4" alt="tailwindcss" />
   </div>
 
-  <h3 align="center">A Modern Next.js Portfolio</h3>
+  <h3 align="center">Sahaj Bhadja – Modern Next.js Portfolio</h3>
 
 </div>
 
@@ -22,9 +16,14 @@
 2. ⚙️ [Tech Stack](#tech-stack)
 3. 🔋 [Features](#features)
 4. 🤸 [Quick Start](#quick-start)
-5. 🕸️ [Code to Copy](#snippets)
-6. 🔗 [Assets](#links)
-7. 🚀 [More](#more)
+5. 🧪 [Testing](#testing)
+6. 🕸️ [Code to Copy](#snippets)
+7. 🔗 [Assets](#links)
+
+## <a name="introduction">🤖 Introduction</a>
+
+This repository contains my personal portfolio website built with the latest Next.js App Router, Tailwind CSS, Framer Motion, and a set of custom and prebuilt UI components.  
+It is deployed as a **static export** (no server-side rendering) and showcases my skills, projects, and experience as a software engineer.
 
 ## <a name="tech-stack">⚙️ Tech Stack</a>
 
@@ -66,7 +65,7 @@ Make sure you have the following installed on your machine:
 **Cloning the Repository**
 
 ```bash
-git clone https://github.com/adrianhajdin/portfolio.git
+git clone https://github.com/sahajbhadja/portfolio.git
 cd portfolio
 ```
 
@@ -85,6 +84,22 @@ npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) in your browser to view the project.
+
+**Production build**
+
+```bash
+npm run build
+```
+
+The project is configured for static export (`output: "export"` in `next.config.mjs`) and is optimized for deployment to platforms like Vercel.
+
+## <a name="testing">🧪 Testing</a>
+
+After installing dependencies, you can run the test suite (once configured) with:
+
+```bash
+npm test
+```
 
 ## <a name="snippets">🕸️ Snippets</a>
 
